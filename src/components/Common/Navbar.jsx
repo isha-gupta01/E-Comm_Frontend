@@ -6,6 +6,7 @@ import CartDrawer from "../Layout/CartDrawer"
 import { useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { useSelector } from 'react-redux'
+import Logo from "../../assets/logo.png"
 
 const Navbar = () => {
     const [drawerOpen, setDrawerOpen] = useState(false)
@@ -27,7 +28,7 @@ const Navbar = () => {
                 {/* Left-Logo */}
                 <div>
                     <Link to="/" className="text-2xl font-medium">
-                        Rabbit
+                        <img src={Logo} alt='Vistora' className='w-36 h-9'/>
                     </Link>
                 </div>
                 {/* Center-Nav */}
@@ -48,7 +49,7 @@ const Navbar = () => {
                 {/* Right-Icons */}
                 <div className='flex items-center space-x-6'>
                     {user && user.role === "admin" && (
-                        <Link className='block bg-black px-2 rounded text-sm text-white' to="/admin">Admin</Link>
+                        <Link className='block bg-blue-900 px-2 rounded text-sm text-white' to="/admin">Admin</Link>
                     )}
                     <Link to="/profile" className="hover:text-black">
                         <HiOutlineUser className='h-6 w-6 text-gray-700' />
@@ -56,7 +57,7 @@ const Navbar = () => {
                     <button onClick={toggleCartDrawer} className='relative hover:text-black'>
                         <HiOutlineShoppingBag className='h-6 w-6 text-gray-700' />
                         {cartItemCount > 0 && (
-                            <span className='absolute -top-1 bg-rabbit-red text-white text-xs rounded-full px-2 py-0.5'>
+                            <span className='absolute -top-1 bg-green-50 text-white text-xs rounded-full px-2 py-0.5'>
                                 {cartItemCount}
                             </span>
                         )}
